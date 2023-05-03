@@ -1,63 +1,67 @@
-# Password Manager Written in Python
+# Password Management Platform
 
-A simple local password manager written in Python and MariaDB. Uses [pbkdf2](https://en.wikipedia.org/wiki/PBKDF2) to derive a 256 bit key from a MASTER PASSWORD and DEVICE SECRET to use with AES-256 for encrypting/decrypting.
+A Python-based Password Manager has been developed, which provides a secure way to store and manage passwords while considering the following items:
+Use a strong encryption algorithm for the passwords (the user's passwords are encrypted using AES-256)
+Utilize master password for authorization/authentication
+Allow users to add, retrieve, and generate passwords using a command-line interface
+Include a password strength checker 
+Implement logging to track activities  
+We also used the MariaDB as the database. 
 
 
-# Installation
-You need to have python3 to run this on Windows, Linux or MacOS
-
-## Windows
-### Install Python Requirements
-```pip install -r requirements.txt```
+# Usage
+## Requirements
+•	Python 3.x
+•	MariaDB 10.x
+•	mysql-connector-python-8.0.33
+•	pyperclip-1.8.2
+•	pycryptodome-3.17
 
 ### MariaDB
 #### Install
 Follow [these instructions](https://www.mariadbtutorial.com/getting-started/install-mariadb/) to install MariaDB on Windows
-#### Create user and grant privileges
-- Navigate to MariaDB bin directory
-```
-C:\Program Files\MariaDB\bin
-```
-- Login as root with the password you chose while installation
-```
+
+#### Create user and necessary adjustments
+Navigate to MariaDB bin directory in the machine
+Login as root with the password you chose while installation
 mysql.exe -u root -p
-```
-- Create user
-```
+
+Create user
 CREATE USER 'pm'@localhost IDENTIFIED BY 'password';
-```
-- Grant privileges
-```
+
+Grant privileges
 GRANT ALL PRIVILEGES ON *.* TO 'pm'@localhost IDENTIFIED BY 'password';
-```
 
 
-## Run/Usage
+
+## Run the code
+
+### Installations
+•	import dbconfig
+•	pip install pycryptodome 
+•	pip install pyperclip
+•	pip install mysql-connector-python
+--------------------------
+
 ### Configure
+1-The first step is to initiate the code and set up a master password. To this end, use the following command:
 
-You need to first configure the password manager by choosing a MASTER PASSWORD. This config step is only required to be executed once.
-```
-python config.py make
-```
-The above command will make a new configuration by asking you to choose a MASTER PASSWORD.
-This will generate the DEVICE SECRET, create db and required tables.
+python config.py make (the interface asks for the masterpassword)
 
-```
+This command will create a new configuration, generate the DEVICE SECRET, and create db and required tables.
+
+2- The other command is to delete the existing configuration. All tables will also be deleted 
+
 python config.py delete
-```
-The above command will delete the existing configuration. Doing this will completely delete your device secret and all your entries and you will loose all your passwords. So be aware!
 
-```
+3- And finally we can use "remake" to first delete the existing configuration and create a fresh new configuration by asking a new MASTER PASSWORD.
+
 python config.py remake
-```
-The above command will first delete the existing configuration and create a fresh new configuration by asking you to choose a MASTER PASSWORD, generate the DEVICE SECRET, create the db and required tables.
 
-### Usage
-```
+4- To ask help, use 
+
 python pm.py -h
-
-you can run this command for the help or more better understanding
-```
+-------------------------------
 
 ### Add entry
 ```
