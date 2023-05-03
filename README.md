@@ -79,11 +79,13 @@ python config.py remake
 
 python pm.py -h
 
+### Commands
 
 (i) Add entry
+
 To add a set of username and passords for each website use the following command. Note that, the utility asks for a password until the requirements are met (a loop) and encryption will be implemented immediately.
 
-python pm.py add -s <website name> -u <website url> -e <user email> -l <username>
+python pm.py add -s website-name -u website-url -e user-email -l username
 
 
 (ii) Retrieve entry
@@ -94,14 +96,13 @@ python pm.py extract
 
 The following command will be used to retrieve all usernames for an specefic websites from the datavase:
 
-python pm.py e -s <website name>
+python pm.py e -s website-name
 
 (iii) Access password
 
 The below command allow the user to copy the password of a specific website name and username into the clipboard:
 
-python pm.py e -s <website name> -l <username> --copy
-
+python pm.py e -s website-name -l username --copy
 
 (iv) Generate Password
 
