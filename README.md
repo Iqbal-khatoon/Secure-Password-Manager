@@ -11,13 +11,17 @@ We also used the MariaDB as the database.
 
 # Usage
 ## Requirements
-•	Python 3.x
-•	MariaDB 10.x
-•	mysql-connector-python-8.0.33
-•	pyperclip-1.8.2
-•	pycryptodome-3.17
+Python 3.x
 
-### MariaDB
+MariaDB 10.x
+
+mysql-connector-python-8.0.33
+
+pyperclip-1.8.2
+
+pycryptodome-3.17
+
+## MariaDB
 #### Install
 Follow [these instructions](https://www.mariadbtutorial.com/getting-started/install-mariadb/) to install MariaDB on Windows
 
