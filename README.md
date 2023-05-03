@@ -1,11 +1,17 @@
 # Password Management Platform
 
 A Python-based Password Manager has been developed, which provides a secure way to store and manage passwords while considering the following items:
+
 Use a strong encryption algorithm for the passwords (the user's passwords are encrypted using AES-256)
+
 Utilize master password for authorization/authentication
+
 Allow users to add, retrieve, and generate passwords using a command-line interface
+
 Include a password strength checker 
+
 Implement logging to track activities  
+
 We also used the MariaDB as the database. 
 
 
