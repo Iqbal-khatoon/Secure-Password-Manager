@@ -1,4 +1,4 @@
-# Password Management Platform
+# (1) Password Management Platform
 
 A Python-based Password Manager has been developed, which provides a secure way to store and manage passwords while considering the following items:
 
@@ -15,8 +15,8 @@ Implement logging to track activities  
 We also used the MariaDB as the database. 
 
 
-# Usage
-## Requirements
+# (2) Usage
+## (2-1) Requirements
 Python 3.x
 
 MariaDB 10.x
@@ -27,75 +27,102 @@ pyperclip-1.8.2
 
 pycryptodome-3.17
 
-## MariaDB
-#### Install
-Follow [these instructions](https://www.mariadbtutorial.com/getting-started/install-mariadb/) to install MariaDB on Windows
+## (2-2) MariaDB
 
-#### Create user and necessary adjustments
+Follow [these instructions](https://www.mariadbtutorial.com/getting-started/install-mariadb/) to install MariaDB on Windows.
+
 Navigate to MariaDB bin directory in the machine
+
 Login as root with the password you chose while installation
+
 mysql.exe -u root -p
 
 Create user
+
 CREATE USER 'pm'@localhost IDENTIFIED BY 'password';
 
 Grant privileges
+
 GRANT ALL PRIVILEGES ON *.* TO 'pm'@localhost IDENTIFIED BY 'password';
 
 
 
-## Run the code
+## (2-3) Run the code
 
 ### Installations
-•	import dbconfig
-•	pip install pycryptodome 
-•	pip install pyperclip
-•	pip install mysql-connector-python
+
+import dbconfig
+
+pip install pycryptodome 
+
+pip install pyperclip
+
+pip install mysql-connector-python
 --------------------------
 
 ### Configure
-1-The first step is to initiate the code and set up a master password. To this end, use the following command:
+
+(i) The first step is to initiate the code and set up a master password. To this end, use the following command:
 
 python config.py make (the interface asks for the masterpassword)
 
 This command will create a new configuration, generate the DEVICE SECRET, and create db and required tables.
 
-2- The other command is to delete the existing configuration. All tables will also be deleted 
+(ii) The other command is to delete the existing configuration. All tables will also be deleted 
 
 python config.py delete
 
-3- And finally we can use "remake" to first delete the existing configuration and create a fresh new configuration by asking a new MASTER PASSWORD.
+(iii) And finally we can use "remake" to first delete the existing configuration and create a fresh new configuration by asking a new MASTER PASSWORD.
 
 python config.py remake
 
-4- To ask help, use 
+(iv) To ask help, use 
 
 python pm.py -h
 -------------------------------
 
-### Add entry
-```
-python pm.py add -s mysite -u mysite.com -e hello@email.com -l myusername
-```
-### Retrieve entry
-```
+(i) Add entry
+To add a set of username and passords for each website use the following command. Note that, the utility asks for a password until the requirements are met (a loop) and encryption will be implemented immediately.
+
+python pm.py add -s <website name> -u <website url> -e <user email> -l <username>
+
+
+(ii) Retrieve entry
+
+The following command will be used to retrieve all usernames and websites from the datavase:
+
 python pm.py extract
-```
-The above command retrieves all the entries
-```
-python pm.py e -s mysite
-```
-The above command retrieves all the entries whose site name is "mysite"
-```
-python pm.py e -s mysite -l myusername
-```
-The above command retrieves the entry whose site name is "mysite" and username is "myusername"
-```
-python pm.py e -s mysite -l myusername --copy
-```
-The above command copies the password of the site "mysite" and username "myusername" into the clipboard
-### Generate Password
-```
-python pm.py g --length 15
-```
-The above command generates a password of length 15 and copies to clipboard
+
+The following command will be used to retrieve all usernames for an specefic websites from the datavase:
+
+python pm.py e -s <website name>
+
+(iii) Access password
+
+The below command allow the user to copy the password of a specific website name and username into the clipboard:
+
+python pm.py e -s <website name> -l <username> --copy
+
+
+(iv) Generate Password
+
+This command generates a password of length xx and copies it to the clipboard
+
+python pm.py g --length xx
+
+
+
+# (3) Other Features of the code
+
+Strong encryption/decryption algorithm for the passwords
+
+Authentication techniques and using master passwords
+
+Allows users to add, retrieve, and generate passwords using a command-line interface
+
+The software also includes a password strength checker 
+
+Logging to track activities  
+
+Entry with these details already exists
+
