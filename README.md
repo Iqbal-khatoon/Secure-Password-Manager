@@ -118,9 +118,9 @@ The code use a loop to check the strength of the passwords. The passwords must i
 
 A detailed logging is implemented to track activities of the users. The log generates a log.txt file and monitor all the actions mentioned in the commands section.
 
-Entry with these details already exists
+The utility avoid saving identical usernames for the same website.
 
 
 # (4) Contribution
 
-Most stages of the project incuding the code development (even details of the function), preparing the presentation, updated design document, etc were performed by equal contribution of Iqbal Khatoon and Iran Izadyari. We used various libraries and examples that are available online as a starting point. Everyone is welcome to contribute to this project and build more functionality into it. Make a fork, improve/fix it and create a pull request.
+All stages of the project incuding the code development (details of the functions), preparing the presentation, updating the design document, etc were performed by equal contributions of Iqbal Khatoon and Iran Izadyari. We used various libraries and examples that are available online as a starting point. Everyone is welcome to contribute to this project and build more functionality into it. Make a fork, improve/fix it and create a pull request.
