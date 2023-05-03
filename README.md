@@ -58,7 +58,6 @@ pip install pycryptodome
 pip install pyperclip
 
 pip install mysql-connector-python
---------------------------
 
 ### Configure
 
@@ -79,7 +78,7 @@ python config.py remake
 (iv) To ask help, use 
 
 python pm.py -h
--------------------------------
+
 
 (i) Add entry
 To add a set of username and passords for each website use the following command. Note that, the utility asks for a password until the requirements are met (a loop) and encryption will be implemented immediately.
